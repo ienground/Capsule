@@ -19,7 +19,7 @@ You can run:
 
 ## Installation
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.kyant0/capsule)](https://central.sonatype.com/artifact/io.github.kyant0/capsule)
+[![Maven Central](https://img.shields.io/maven-central/v/zone.ien.capsule/capsule)](https://central.sonatype.com/artifact/zone.ien.capsule/capsule)
 
 In your multiplatform project, add the dependency to your `commonMain` source set:
 
@@ -27,7 +27,7 @@ In your multiplatform project, add the dependency to your `commonMain` source se
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("io.github.kyant0:capsule:<version>")
+            implementation("zone.ien.capsule:capsule:<version>")
         }
     }
 }
@@ -37,7 +37,7 @@ Or for single-platform Android projects, in `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.github.kyant0:capsule:<version>")
+    implementation("zone.ien.capsule:capsule:<version>")
 }
 ```
 

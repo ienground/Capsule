@@ -9,8 +9,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/capsule" />
+            <option value="$PROJECT_DIR$/example" />
+            <option value="$PROJECT_DIR$/example/androidApp" />
+            <option value="$PROJECT_DIR$/example/composeApp" />
+            <option value="$PROJECT_DIR$/example/iosApp" />
           </set>
         </option>
       </GradleProjectSettings>

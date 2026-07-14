@@ -16,7 +16,7 @@ subprojects {
             publishToMavenCentral(automaticRelease = true)
 
             // Artifact ID만 각 프로젝트의 이름으로 자동 설정
-            group = "zone.ien.utils"
+            group = "zone.ien.capsule"
             version = libs.versions.lib.version.name.get()
             println("${group} ${project.name} ${version}")
 
