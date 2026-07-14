@@ -1,72 +1,29 @@
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.compose)
-    id("com.vanniktech.maven.publish")
-}
-
-android {
-    namespace = "com.kyant.capsule"
-    compileSdk {
-        version = release(36)
-    }
-    buildToolsVersion = "36.1.0"
-
-    defaultConfig {
-        minSdk = 21
-
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    buildFeatures {
-        compose = true
-    }
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.kotlin.multiplatform.library)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.vanniktech.mavenPublish)
 }
 
 kotlin {
-    jvmToolchain(21)
-}
+    androidLibrary {
+        namespace = "com.kyant.capsule"
+        compileSdk = libs.versions.android.compileSdk.get().toInt()
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
 
-dependencies {
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.foundation)
-}
+    iosArm64()
+    iosSimulatorArm64()
 
-mavenPublishing {
-    publishToMavenCentral()
-    signAllPublications()
-
-    coordinates("io.github.kyant0", "capsule", "2.1.3")
-
-    pom {
-        name.set("Capsule")
-        description.set("Jetpack Compose smooth corners")
-        inceptionYear.set("2025")
-        url.set("https://github.com/Kyant0/Capsule")
-        licenses {
-            license {
-                name.set("The Apache License, Version 2.0")
-                url.set("http://www.apache.org/licenses/LICENSE-2.0.txt")
-                distribution.set("repo")
-            }
+    sourceSets {
+        commonMain.dependencies {
+            implementation(compose.foundation)
+            implementation(compose.runtime)
+            implementation(compose.ui)
         }
-        developers {
-            developer {
-                id.set("Kyant0")
-                name.set("Kyant")
-                url.set("https://github.com/Kyant0")
-            }
-        }
-        scm {
-            url.set("https://github.com/Kyant0/Capsule")
-            connection.set("scm:git:git://github.com/Kyant0/Capsule.git")
-            developerConnection.set("scm:git:ssh://git@github.com/Kyant0/Capsule.git")
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
     }
 }
