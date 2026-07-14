@@ -1,0 +1,23 @@
+name: 🔄 Refactoring
+description: Propose code refactoring or cleaning.
+title: '[REFACTOR] '
+labels: ['refactoring']
+body:
+  - type: textarea
+    id: code
+    attributes:
+      label: "🎯 Target Code / Area"
+      placeholder: "```kotlin\n// Paste code or describe the target area here\n```"
+      render: kotlin
+    validations:
+      required: true
+  - type: dropdown
+    id: reason
+    attributes:
+      label: "💡 Reason for Improvement"
+      multiple: true
+      options:
+        - "Readability"
+        - "Performance Optimization"
+        - "Maintainability"
+        - "Code Duplication Removal"

@@ -1,0 +1,17 @@
+name: ❓ Question
+description: Ask a question about the project or code.
+title: '[QUESTION] '
+labels: ['question']
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: "💬 Question Details"
+      placeholder: "Describe your question in detail."
+    validations:
+      required: true
+  - type: textarea
+    id: code
+    attributes:
+      label: "📱 Relevant Code (Optional)"
+      render: kotlin
