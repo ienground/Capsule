@@ -28,7 +28,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Capsule"
+rootProject.name = "capsule-project"
 include(":capsule")
 include(":example:composeApp")
 include(":example:androidApp")
